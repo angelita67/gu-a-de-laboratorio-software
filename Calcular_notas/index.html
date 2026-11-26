@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cálculo de Notas Definitivas</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Sistema de Cálculo de Notas Definitivas</h1>
+    <p>Escala de calificación: 0.0 a 5.0 | Aprobación: ≥ 3.0</p>
+  </header>
+
+  <main class="container">
+    <!-- ESTADO 1: Pantalla de Acceso -->
+    <section id="vista-acceso" class="card" aria-labelledby="titulo-acceso">
+      <h2 id="titulo-acceso">Ingreso de Estudiante</h2>
+      <p class="descripcion">Ingresa tu número de documento para iniciar sesión o registrarte automáticamente.</p>
+
+      <form id="form-acceso" novalidate>
+        <div class="form-group">
+          <label for="input-documento">Número de documento</label>
+          <input
+            type="text"
+            id="input-documento"
+            name="documento"
+            placeholder="Ej: 1094888123"
+            autocomplete="off"
+            required
+          />
+        </div>
+        <p id="mensaje-acceso" class="alerta" role="alert" hidden></p>
+        <button type="submit" class="btn btn-primary">Ingresar</button>
+      </form>
+    </section>
+
+    <!-- ESTADO 2 y 3: Panel de Notas, Resultados e Historial -->
+    <section id="vista-panel" hidden>
+      <!-- Barra superior de sesión -->
+      <div class="session-bar card">
+        <span>Estudiante: <strong id="usuario-actual-doc">---</strong></span>
+        <button type="button" id="btn-cerrar-sesion" class="btn btn-secondary">Cerrar sesión</button>
+      </div>
+
+      <!-- Configuración de cantidad de notas -->
+      <article class="card">
+        <h2>Configuración de Evaluaciones</h2>
+        <div class="config-row">
+          <div class="form-group">
+            <label for="input-cantidad-notas">Cantidad de notas a evaluar</label>
+            <input
+              type="number"
+              id="input-cantidad-notas"
+              min="1"
+              max="20"
+              placeholder="Ej: 3"
+            />
+          </div>
+          <button type="button" id="btn-generar-campos" class="btn btn-primary">
+            Generar campos
+          </button>
+        </div>
+        <p id="mensaje-config" class="alerta" role="alert" hidden></p>
+      </article>
+
+      <!-- Formulario dinámico de notas y porcentajes -->
+      <article id="seccion-notas" class="card" hidden>
+        <div class="notas-header">
+          <h2>Detalle de Notas y Porcentajes</h2>
+          <span id="indicador-porcentaje" class="badge">Total porcentaje: 0%</span>
+        </div>
+
+        <form id="form-calculo" novalidate>
+          <!-- Aquí se inyectarán dinámicamente las filas en la Fase 4 -->
+          <div id="contenedor-notas" class="notas-grid"></div>
+
+          <p id="mensaje-calculo" class="alerta" role="alert" hidden></p>
+
+          <button type="submit" class="btn btn-success">Calcular Nota Definitiva</button>
+        </form>
+      </article>
+
+      <!-- Resultado del cálculo actual -->
+      <article id="seccion-resultado" class="card resultado-card" hidden>
+        <h2>Resultado Académico</h2>
+        <div class="resultado-detalle">
+          <div>
+            <span class="label">Nota Definitiva:</span>
+            <strong id="valor-nota-definitiva" class="nota-final">0.00</strong>
+          </div>
+          <span id="estado-academico" class="estado-badge">---</span>
+        </div>
+      </article>
+
+      <!-- Historial guardado en IndexedDB -->
+      <article class="card">
+        <h2>Historial de Cálculos</h2>
+        <div id="lista-historial" class="historial-lista">
+          <p class="texto-vacio">Aún no tienes cálculos registrados.</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- Punto de entrada modular ES6 -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

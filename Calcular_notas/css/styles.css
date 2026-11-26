@@ -1,0 +1,243 @@
+:root {
+  --bg-color: #f4f6f9;
+  --card-bg: #ffffff;
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --warning: #d97706;
+  --border: #d1d5db;
+  --radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.5;
+  padding-bottom: 2rem;
+}
+
+.app-header {
+  background-color: var(--primary);
+  color: #ffffff;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.app-header p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 0.25rem;
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+h2 {
+  font-size: 1.15rem;
+  margin-bottom: 0.75rem;
+}
+
+.descripcion,
+.texto-vacio {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin-bottom: 1rem;
+}
+
+.session-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+  flex: 1;
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+input {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: 2px solid var(--primary);
+  border-color: transparent;
+}
+
+/* Clase para resaltar errores (FA-02 y FA-03) */
+input.input-error {
+  border: 2px solid var(--danger);
+  background-color: #fef2f2;
+}
+
+.config-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-end;
+}
+
+.notas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.notas-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.nota-fila {
+  display: grid;
+  grid-template-columns: 90px 1fr 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.65rem;
+  background: #f9fafb;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.btn {
+  padding: 0.65rem 1.1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn-secondary {
+  background: #e5e7eb;
+  color: var(--text-main);
+}
+
+.btn-success {
+  background: var(--success);
+  color: #fff;
+  width: 100%;
+}
+
+.alerta {
+  padding: 0.65rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+  background-color: #fef2f2;
+  color: var(--danger);
+  border: 1px solid #fecaca;
+}
+
+.badge {
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: #e5e7eb;
+}
+
+.badge.ok {
+  background: #dcfce7;
+  color: var(--success);
+}
+
+.badge.warn {
+  background: #fef3c7;
+  color: var(--warning);
+}
+
+.resultado-detalle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nota-final {
+  font-size: 2rem;
+  margin-left: 0.5rem;
+}
+
+.estado-badge {
+  padding: 0.45rem 1rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.estado-badge.aprobado {
+  background: #dcfce7;
+  color: var(--success);
+}
+
+.estado-badge.reprobado {
+  background: #fee2e2;
+  color: var(--danger);
+}
+
+.historial-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.historial-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+[hidden] {
+  display: none !important;
+}
